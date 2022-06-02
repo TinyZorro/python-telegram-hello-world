@@ -63,5 +63,5 @@ if __name__ == '__main__':
     dispatch.add_handler(CommandHandler('start', start, Filters.chat_type.private), group=0)
     available_animals = requests.get('https://api.tinyfox.dev/img').json()['available']
     dispatch.add_handler(CommandHandler(available_animals, image), group=0)
-    print(f'Started {bot.username} with settings: {conf}')
+    print(f'Started {bot.username} with settings: {conf} and {len(available_animals)} animals\n{available_animals}')
     updater.start_polling()
